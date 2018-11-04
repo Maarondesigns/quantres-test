@@ -26,6 +26,8 @@ app.get(`/mapbox/`, (req, res) => {
 
 app.post("/addcity", addCity);
 
+app.post("/addcountry", addCountry);
+
 function addCity(req, res) {
   console.log(req.body);
   var newCity = {
@@ -51,4 +53,26 @@ function addCity(req, res) {
   });
 
   res.send(newCity);
+}
+
+function addCountry(req, res) {
+  console.log(req.body);
+  var newCountry = {
+    name: req.body.name
+  };
+  let allCountries;
+  fs.readFile("public/countries.json", "utf8", (err, data) => {
+    if (err) {
+      console.log(err);
+    } else {
+      allCountries = JSON.parse(data);
+      allCountries.cities.push(newCountry);
+      json = JSON.stringify(allCountries);
+      fs.writeFile("public/countries.json", json, "utf8", () =>
+        console.log("success")
+      );
+    }
+  });
+
+  res.send(newCountry);
 }

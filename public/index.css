@@ -7,13 +7,18 @@ body {
   left: 0;
   top: 0;
   width: 25vw;
-  height: 100vh;
+  height: 95vh;
   background-color: rgba(255, 255, 255, 0.5);
   padding: 20px;
+  overflow-y: scroll;
+}
+
+#country-info h3 {
+  margin: 10px 0;
 }
 
 .country {
-  fill: rgba(0, 0, 0, 0);
+  /* fill: rgba(0, 0, 0, 0); */
   stroke: rgba(0, 0, 0, 0);
   /* stroke-linejoin: round; */
   /* stroke-width: .5px; */
@@ -50,14 +55,17 @@ body {
 #employees,
 #weather-container,
 #country-name-container,
-#add-employee-container {
+#add-employee-container,
+#add-country-container,
+#countries {
   background-color: white;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
   margin: 10px 0;
   padding: 10px;
 }
 
-.city-info div {
+.city-info div,
+.country-info div {
   background-color: lightgray;
   border: dashed 1px gray;
   margin: 4px 0;

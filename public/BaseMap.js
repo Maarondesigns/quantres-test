@@ -1,15 +1,26 @@
 import showCountryName from "./ShowCountryName.js";
 import cityLookup from "./CityLookup.js";
+import countryLookup from "./CountryLookup.js";
 import addCity from "./AddCity.js";
+import addCountry from "./AddCountry.js";
 
-let countryInfo = d3.select("#add-city");
+let addCityContainer = d3.select("#add-city");
 
-countryInfo
+addCityContainer
   .append("input")
   .attr("id", "city-lookup")
   .on("input", cityLookup);
 
-countryInfo.append("div").attr("id", "autofill");
+addCityContainer.append("div").attr("id", "autofill");
+
+let addCountryContainer = d3.select("#add-country-container");
+
+addCountryContainer
+  .append("input")
+  .attr("id", "country-lookup")
+  .on("input", countryLookup);
+
+addCountryContainer.append("div").attr("id", "autofill2");
 
 var pi = Math.PI,
   tau = 2 * pi;
@@ -52,12 +63,14 @@ Promise.all([
   d3.tsv(
     "https://raw.githubusercontent.com/Maarondesigns/Travel_Blog/master/WorldCountryNames.tsv"
   ),
-  d3.json("cities.json")
-]).then(([world, names, cities]) => {
-  ready(world, names, cities);
+  d3.json("cities.json"),
+  d3.json("countries.json")
+]).then(([world, names, cities, countries]) => {
+  ready(world, names, cities, countries);
 });
 
-function ready(world, names, cities) {
+function ready(world, names, cities, countries) {
+  let countriesArray = countries.countries.map(x => x.name);
   svg
     .selectAll("path")
     .data(topojson.feature(world, world.objects.countries).features)
@@ -65,7 +78,17 @@ function ready(world, names, cities) {
     .append("path")
     .attr("d", path)
     .attr("class", "country")
-    .on("mouseover", (d, i) => showCountryName(d, i, names));
+    .on("mouseover", (d, i) => showCountryName(d, i, names))
+    .attr("fill", d => {
+      let name;
+      let filter = names.filter(x => x.id == d.id)[0];
+      if (filter) {
+        name = filter.name;
+      }
+      if (name && countriesArray.includes(name)) {
+        return "rgba(50,100,200,0.3)";
+      } else return "rgba(0,0,0,0)";
+    });
 
   function geoLocations(cities) {
     return cities.map(function(d) {
@@ -81,6 +104,9 @@ function ready(world, names, cities) {
 
   cities.cities.forEach(city => {
     addCity(city);
+  });
+  countries.countries.forEach(country => {
+    addCountry(country);
   });
 
   // svg
