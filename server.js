@@ -66,7 +66,7 @@ function addCountry(req, res) {
       console.log(err);
     } else {
       allCountries = JSON.parse(data);
-      allCountries.cities.push(newCountry);
+      allCountries.countries.push(newCountry);
       json = JSON.stringify(allCountries);
       fs.writeFile("public/countries.json", json, "utf8", () =>
         console.log("success")
