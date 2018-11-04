@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<link rel="stylesheet" type="text/css" href="index.css">
+<script src="//d3js.org/d3.v4.min.js"></script>
+<script src="https://d3js.org/d3-fetch.v1.min.js"></script>
+<script src="https://d3js.org/queue.v1.min.js"></script>
+<script src="//d3js.org/d3-tile.v0.0.min.js"></script>
+<script src="//d3js.org/topojson.v1.min.js"></script>
+
+<body>
+    <div id="country-info">
+        <div id="country-name-container">
+            <h2 id="country-name">No Country Selected</h2>
+            <div id="country-population"></div>
+            <div id="country-area"></div>
+        </div>
+        <div id="add-employee-container">
+            <h3 class="add-city">Add Employee:</h3>
+            <div>Employee Name:</div> <input type="text" id="employee">
+            <div id="add-city">
+                <div>City:</div>
+            </div>
+        </div>
+        <div id="employees">
+            <h3>Employees:</h3>
+        </div>
+        <div id="weather-container">
+            <h3>Current Weather</h3>
+            <div id="weather-data"></div>
+        </div>
+    </div>
+    <svg></svg>
+    <script type="module" src="/BaseMap.js"></script>
+</body>

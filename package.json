@@ -1,0 +1,27 @@
+{
+  "author": "Michael Wilson",
+  "name": "quantres_proj",
+  "version": "0.0.0",
+  "description": "Mapping Project for Quantres",
+  "homepage": "https://maarondesigns.github.io/Travel-Blog/",
+  "license": "to kill",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.14.0"
+  },
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "engines": {
+    "node": "8.11.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "devDependencies": {
+    "dotenv": "^6.0.0",
+    "nodemon": "^1.18.5"
+  }
+}

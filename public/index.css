@@ -1,0 +1,65 @@
+body {
+  margin: 0;
+}
+
+#country-info {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 25vw;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 20px;
+}
+
+.country {
+  fill: rgba(0, 0, 0, 0);
+  stroke: rgba(0, 0, 0, 0);
+  /* stroke-linejoin: round; */
+  /* stroke-width: .5px; */
+}
+
+.country:hover {
+  fill: rgba(255, 0, 0, 0.1);
+  stroke: red;
+  stroke-width: 0.1px;
+}
+.city {
+  fill: red;
+}
+
+#autoContainer {
+  background-color: lightgray;
+  padding: 5px 5px 1px 5px;
+  border-radius: 4px;
+  box-shadow: 0 0 10px;
+  font: normal 12px verdana;
+  margin-top: 10px;
+}
+.autocomplete {
+  background-color: white;
+  padding: 2px;
+  border-radius: 4px;
+  margin-bottom: 4px;
+  cursor: pointer;
+}
+.autocomplete:hover {
+  box-shadow: 0 0 10px black;
+}
+
+#employees,
+#weather-container,
+#country-name-container,
+#add-employee-container {
+  background-color: white;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+  margin: 10px 0;
+  padding: 10px;
+}
+
+.city-info div {
+  background-color: lightgray;
+  border: dashed 1px gray;
+  margin: 4px 0;
+  padding: 4px;
+}
